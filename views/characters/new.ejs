@@ -1,0 +1,35 @@
+<%- include('../partials/header') %>
+
+<form id="new-form" action="/characters" method="POST">
+  <label>Name:</label>
+  <input type="text" name="name">
+  <label>Race:</label>
+  <select name="race">
+    <option value="Dwarf">Dwarf</option>
+    <option value="Elf">Elf</option>
+    <option value="Halfling">Halfling</option>
+    <option value="Human">Human</option>
+    <option value="Drangonborn">Drangonborn</option>
+    <option value="Gnome">Gnome</option>
+    <option value="Half-Elf">Half-Elf</option>
+    <option value="Half-Orc">Half-Orc</option>
+    <option value="Tiefling">Tiefling</option>
+    </select>
+  <label>Class:</label>
+  <select name="class">
+    <option value="Barbarian">Barbarian</option>
+    <option value="Bard">Bard</option>
+    <option value="Cleric">Cleric</option>
+    <option value="Druid">Druid</option>
+    <option value="Fighter">Fighter</option>
+    <option value="Monk">Monk</option>
+    <option value="Paladin">Paladin</option>
+    <option value="Ranger">Ranger</option>
+    <option value="Rogue">Rogue</option>
+    <option value="Warlock">Warlock</option>
+    <option value="Wizard">Wizard</option>
+  </select>
+  </p><input type="submit" value="Start Build">
+</form>
+
+<%- include('../partials/footer') %>
