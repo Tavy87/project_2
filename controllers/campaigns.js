@@ -17,7 +17,7 @@ async function addToGame(req, res) {
 
 async function newCampaign(req, res) {
   //Sort performers by their name
-  const campaigns = await Campaign.find({}).sort('name');
+  const campaigns = await Campaign.find({}).sort('');
   res.render('campaigns/new', { title: 'Add Campaign', campaigns });
 }
 
@@ -28,7 +28,6 @@ async function create(req, res) {
   // https://stackoverflow.com/questions/7556591/is-the-javascript-date-object-always-one-day-off
   // Fix by either reformatting to "MM-DD-YYYY" or by 
   // appending a "time" fragment like this... 
-  console.log(req.body)
   req.body.start = 'T00:00';
   try {
     await Campaign.create(req.body);

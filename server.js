@@ -29,7 +29,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
 // middleware for generating sessions and signing them with .env SECRET
 app.use(session({
   secret: process.env.SECRET,
@@ -50,8 +50,9 @@ app.use(function(req, res, next) {
 // ROUTES BEGIN HERE
 app.use('/', indexRouter);
 app.use('/characters', charactersRouter);
-app.use('/', campaignsRouter);
 app.use('/', notesRouter);
+app.use('/', campaignsRouter);
+
 
 
 // catch 404 and forward to error handler

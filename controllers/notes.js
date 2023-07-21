@@ -11,7 +11,7 @@ async function deleteNote(req, res) {
   // Rogue user!
   if (!character) return res.redirect('/characters');
   // Remove the review using the remove method available on Mongoose arrays
-  charcter.notes.remove(req.params.id);
+  character.notes.remove(req.params.id);
   // Save the updated movie doc
   await character.save();
   // Redirect back to the movie's show view

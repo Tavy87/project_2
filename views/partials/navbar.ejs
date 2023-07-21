@@ -4,7 +4,7 @@
         <a href="/characters/new" <%- title === 'Add Character' ? 'class="active"' : '' %>>BUILD CHARACTER</a>          
         <% if (user) { %>
           <a href="/campaigns/new"	<%- title === 'Add Campaign' ? 'class="active"' : '' %>>ADD CAMPAIGN</a>
-          <a href="/characters/" <%- title === 'Dashboard' ? 'class="active"' : '' %>>DASHBOARD</a>          
+          <a href="/characters" <%- title === 'Dashboard' ? 'class="active"' : '' %>>DASHBOARD</a>          
           <a href="/logout">LOG OUT</a>
         <% } else { %>
           <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>

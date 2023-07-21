@@ -3,7 +3,7 @@
 <div>Before adding, please ensure that the DM is not in the following list:</div>
 <section id="badge-container">
   <% campaigns.forEach(function(k) { %>
-    <article class="badge"><%= k.dm %></article>
+    <article class="badge"><%= k.name %></article>
   <% }) %>
 </section>
 
@@ -22,9 +22,9 @@
     </select>
   <label>Dungeon Master:</label>
   <input type="text" name="dm">
-  <label>Start date:</label>
+  <label>Start:</label>
   <input type="date" name="start">
-  </p><input type="submit" value="Add Campaign">
+  <input type="submit" value="Add Campaign">
 </form>
 
 <%- include('../partials/footer') %>

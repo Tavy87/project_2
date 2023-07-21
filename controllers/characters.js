@@ -21,7 +21,8 @@ async function show(req, res) {
       // Performer.find({}).where('_id').nin(movie.cast)
     // The native MongoDB approach uses a query object to find 
     // performer docs whose _ids are not in the movie.cast array like this:
-    const campaigns = await Campaign.find({_id: { $nin: character.game }}).sort((a,b)=>a.name-b.name);
+    const campaigns = await Campaign.find({});
+    //.sort((a,b)=>a.name-b.name);
     res.render("characters/show", { title: "Characters Details", character, campaigns });
 } 
 

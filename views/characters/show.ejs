@@ -22,7 +22,7 @@
   <select name="campaignId">
     <!-- Emit an option for each performer -->
     <%- campaigns.map(k => 
-      `<option value="${k._id}">${k.dm}</option>`
+      `<option value="${k._id}">${k.name}</option>`
     ).join('') %>
   </select>
   <button type="submit">Add to Game</button>

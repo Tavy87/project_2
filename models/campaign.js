@@ -9,7 +9,6 @@ const campaignSchema = new Schema({
         enum: [ '1st', '2nd', '2nd revised', '3rd', '3rd revised', '4th', '5th' ]
       },
     dm: { type: String, required: true },  
-    start: Date  
      }, {
     timestamps: true
   });
