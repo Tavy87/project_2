@@ -1,14 +1,15 @@
 <%- include('../partials/header') %>
 
+<div>Before adding, please ensure that the DM is not in the following list:</div>
 <section id="badge-container">
   <% campaigns.forEach(function(k) { %>
-    <article class="badge"><%= k.name %></article>
+    <article class="badge"><%= k.dm %></article>
   <% }) %>
 </section>
 
 <form id="add-campaign-form" action="/campaigns" method="POST">
   <label>Name:</label>
-  <input type="text" id="name" name="name">
+  <input type="text" name="name">
   <label>Edition:</label>
   <select name="edition">
     <option value="1st">1st</option>
@@ -20,9 +21,9 @@
     <option value="5th">5th</option>
     </select>
   <label>Dungeon Master:</label>
-  <input type="text" id="dm" name="dm">
+  <input type="text" name="dm">
   <label>Start date:</label>
-  <input type="date" id="start" name="start">
+  <input type="date" name="start">
   </p><input type="submit" value="Add Campaign">
 </form>
 

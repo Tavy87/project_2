@@ -4,7 +4,7 @@ const passport = require("passport");
 
 // This app has no "home" page, but your projects should 😀
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Home Page' });
+  res.render('/charcters', { title: 'Home Page' });
 });
 
 // Google OAuth Route login route
@@ -16,7 +16,7 @@ router.get("/auth/google", passport.authenticate(
     scope: ["profile", "email"],
     // optionally allow picking between different google accounts
     // uncomment if you want this
-    prompt: "select_account"
+    //prompt: "select_account"
   }
 ));
 
@@ -24,15 +24,15 @@ router.get("/auth/google", passport.authenticate(
 router.get("/oauth2callback", passport.authenticate(
   "google",
   {
-    successRedirect: "/",
-    failureRedirect: "/"
+    successRedirect: "/characters",
+    failureRedirect: "/characters"
   }
 ));
 
 // OAuth logout route
 router.get("/logout", function(req,res) {
   req.logout(function() {
-    res.redirect("/")
+    res.redirect("/characters")
   });
 });
 

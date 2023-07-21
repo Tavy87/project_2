@@ -1,8 +1,22 @@
 const Character = require('../models/character');
 
 module.exports = {
-  create
+  create,
+  delete: deleteNote
 };
+
+async function deleteNote(req, res) {
+  // Note the cool "dot" syntax to query on the property of a subdoc
+  const character = await Character.findOne({ 'notes._id': req.params.id, 'notes.user': req.user._id });
+  // Rogue user!
+  if (!character) return res.redirect('/characters');
+  // Remove the review using the remove method available on Mongoose arrays
+  charcter.notes.remove(req.params.id);
+  // Save the updated movie doc
+  await character.save();
+  // Redirect back to the movie's show view
+  res.redirect(`/characters/${character._id}`);
+}
 
 async function create(req, res) {
   const character = await Character.findById(req.params.id);

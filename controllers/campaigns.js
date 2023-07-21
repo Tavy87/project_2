@@ -4,13 +4,13 @@ const Character = require('../models/character');
 module.exports = {
   new: newCampaign,
   create,
-  addToCharacter
+  addToGame
 };
 
-async function addToCharacter(req, res) {
+async function addToGame(req, res) {
   const character = await Character.findById(req.params.id);
   // The cast array holds the performer's ObjectId (referencing)
-  character.campaign.push(req.body.campaignId);
+  character.game.push(req.body.campaignId);
   await character.save();
   res.redirect(`/characters/${character._id}`);
 }
@@ -29,7 +29,7 @@ async function create(req, res) {
   // Fix by either reformatting to "MM-DD-YYYY" or by 
   // appending a "time" fragment like this... 
   console.log(req.body)
-  req.body.born = 'T00:00';
+  req.body.start = 'T00:00';
   try {
     await Campaign.create(req.body);
   } catch (err) {

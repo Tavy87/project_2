@@ -7,12 +7,32 @@
   <div><%= character.race %></div>
   <div>Class: </div>
   <div><%= character.class %></div>
-  </section>
+  <div>Campaign Ready: </div>
+  <div><%= character.campaignReady ? 'Yes' : 'Nope' %></div>
+  <div>Game:</div>
+  <ul>
+    <%- character.game.map(k => 
+      `<li>${k.name} <small>${k.start.toLocaleDateString()}</small></li>`
+    ).join('') %>
+  </ul>
+  <!-- end cast list -->
+</section>
+<!-- add to cast form below this comment -->
+<form id="add-per-to-game" action="/characters/<%= character._id %>/campaigns" method="POST">
+  <select name="campaignId">
+    <!-- Emit an option for each performer -->
+    <%- campaigns.map(k => 
+      `<option value="${k._id}">${k.dm}</option>`
+    ).join('') %>
+  </select>
+  <button type="submit">Add to Game</button>
+</form>  
+</section>
 
 
 <br><br><h2>Notes</h2>
 <form id="add-note-form" method="POST"
-  action="/characters/<%= n._id %>/notes">
+  action="/characters/<%= character._id %>/notes">
   <label>Notes:</label>
   <textarea name="content"></textarea>
   <input type="submit" value="Add Note">
@@ -24,17 +44,18 @@
       <tr>
         <th>Date</th>
         <th>Note</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-      <% let total = 0 %>
       <% character.notes.forEach(function(n) { %>
         <tr>
+          <td class="note-user"><img alt="avatar" src="<%= n.userAvatar %>" referrerpolicy="no-referrer" ><%= n.userName %></td>
           <!-- .toLocaleDateString() provides a more friendly date format -->
-          <td><%= n.date.toLocaleDateString() %></td>
-          <td><%= n.note %></td>
+          <td><%= n.createdAt.toLocaleDateString() %></td>
+          <td><%= n.content %></td>
           <td>
-            <% if (user?._id.equals(r.user)) { %>
+            <% if (user?._id.equals(n.user)) { %>
               <form action="/notes/<%= n._id %>?_method=DELETE" method="POST">
                 <button type="submit">X</button>
               </form>
@@ -42,10 +63,7 @@
           </td>
         </tr>
       <% }); %>
-      <tr>
-        <td colspan="3"></td>
-        <td><strong><%= (total / character.notes.length).toFixed(1) %></strong></td>
-      </tr>
+
     </tbody>
   </table>
 <% } else { %>

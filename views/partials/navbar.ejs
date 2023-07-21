@@ -1,7 +1,7 @@
 
       <nav>
         <img src="https://cdn.pixabay.com/photo/2021/02/16/16/22/d-d-6021557_1280.png">
-        <a href="/characters/new" <%- title === 'Build Character' ? 'class="active"' : '' %>>BUILD CHARACTER</a>          
+        <a href="/characters/new" <%- title === 'Add Character' ? 'class="active"' : '' %>>BUILD CHARACTER</a>          
         <% if (user) { %>
           <a href="/campaigns/new"	<%- title === 'Add Campaign' ? 'class="active"' : '' %>>ADD CAMPAIGN</a>
           <a href="/characters/" <%- title === 'Dashboard' ? 'class="active"' : '' %>>DASHBOARD</a>          

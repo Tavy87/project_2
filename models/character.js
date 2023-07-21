@@ -7,6 +7,13 @@ const noteSchema = new Schema({
     type: String,
     required: true
   },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
+  userName: String,
+  userAvatar: String
  }, {
   timestamps: true
 });
@@ -21,6 +28,11 @@ const characterSchema = new Schema({
         type: String,
         enum: ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Warlock', 'Wizard' ]
       },
+      game: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Campaign'
+      }],
+      campaignReady: { type: Boolean, default: true },
       notes: [noteSchema]
      }, {
     timestamps: true
