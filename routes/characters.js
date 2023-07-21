@@ -10,6 +10,6 @@ router.get('/new', charactersCtrl.new);
 // GET /movies/:id (show functionality) MUST be below new route
 router.get('/:id', charactersCtrl.show);
 // POST /movies
-router.post('/', charactersCtrl.create);
+router.post('/', ensureLoggedIn, charactersCtrl.create);
 
 module.exports = router;

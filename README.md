@@ -1,3 +1,23 @@
+# App Title: 
+DnD Campaign Tracker
+A discord for campaigns
+
+# Screenshot(s): 
+
+
+# Technologies Used: 
+Css, CRUD, HTML
+
+# Getting Started:
+http://localhost:3000/characters
+https://trello.com/b/nvnozIko/project-2
+
+# Next Steps: 
+-Drop to select new/old DM for reg. users allowing DM admin access to character sheet
+-Game details: DM full access with edits, users limited access and can only edit their game notes.
+-Redirect start build to build page
+-Reference page for characters and skills
+
 # Set Up Notes
 You will need your mongoose link info
 DATABASE_URL
