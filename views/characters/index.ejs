@@ -6,7 +6,8 @@
       <th>Name</th>
       <th>Race</th>
       <th>Class</th>
-    </tr>
+      <th>Campaign</th>
+   </tr>
   </thead>
   <tbody>
     <% characters.forEach(function(c) { %>
@@ -14,10 +15,12 @@
         <td><%= c.name %></td>
         <td><%= c.race %></td>
         <td><%= c.class %></td>
-        <td><a href="/characters/<%= c.id %>">DETAILS</a></td>
+        <td></td>
+        <td><a href="/characters/<%= c._id %>">DETAILS</a></td>
       </tr>
       <% }); %>
     </tbody>
   </table>
+  
   
 <%- include('../partials/footer') %>

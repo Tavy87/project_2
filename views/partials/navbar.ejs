@@ -1,24 +1,12 @@
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">DnD Character Sheets</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a href="/characters/new" <%- title === 'Add Character' ? 'class="active"' : '' %>>ADD CHARACTER</a>
-      &nbsp;|&nbsp;
-      <a href="/characters" <%- title === 'All Characters' ? 'class="active"' : '' %>>ALL CHARACTERS</a>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link" href="/">Home</a>
-          <% if (user) { %>
-            <a class="nav-link" href="/logout">Log Out</a>
-            <% } else { %>
-            <a class="nav-link" href="/auth/google">Log In</a>
-              <% } %>
-            </div>
-          </div>
-        </div>
+      <nav>
+        <img src="https://cdn.pixabay.com/photo/2021/02/16/16/22/d-d-6021557_1280.png">
+        <a href="/characters/new" <%- title === 'Build Character' ? 'class="active"' : '' %>>BUILD CHARACTER</a>          
+        <% if (user) { %>
+          <a href="/campaigns/new"	<%- title === 'Add Campaign' ? 'class="active"' : '' %>>ADD CAMPAIGN</a>
+          <a href="/characters/" <%- title === 'Dashboard' ? 'class="active"' : '' %>>DASHBOARD</a>          
+          <a href="/logout">LOG OUT</a>
+        <% } else { %>
+          <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+        <% } %>
       </nav>
-      <h1><%= title %></h1>
-

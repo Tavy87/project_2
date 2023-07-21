@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+
+<section id="badge-container">
+  <% campaigns.forEach(function(k) { %>
+    <article class="badge"><%= k.name %></article>
+  <% }) %>
+</section>
+
+<form id="add-campaign-form" action="/campaigns" method="POST">
+  <label>Name:</label>
+  <input type="text" id="name" name="name">
+  <label>Edition:</label>
+  <select name="edition">
+    <option value="1st">1st</option>
+    <option value="2nd">2nd</option>
+    <option value="2nd revised">2nd revised</option>
+    <option value="3rd">3rd</option>
+    <option value="3rd revised">3rd revised</option>
+    <option value="4th">4th</option>
+    <option value="5th">5th</option>
+    </select>
+  <label>Dungeon Master:</label>
+  <input type="text" id="dm" name="dm">
+  <label>Start date:</label>
+  <input type="date" id="start" name="start">
+  </p><input type="submit" value="Add Campaign">
+</form>
+
+<%- include('../partials/footer') %>
